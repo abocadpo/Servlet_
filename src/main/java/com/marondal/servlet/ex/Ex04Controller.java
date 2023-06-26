@@ -20,7 +20,7 @@ public class Ex04Controller extends HttpServlet{
 		
 		// 이름과 ㅏ생년월일 전달 받고, 이름 , 나이 보여주는 페이지
 		String name = request.getParameter("name");
-		String birthday = request.getParameter(("birthday"));
+		String birthday = request.getParameter("birthday");
 		
 		int year = Integer.parseInt(birthday.substring(0,4));
 		

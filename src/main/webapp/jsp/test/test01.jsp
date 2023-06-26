@@ -10,8 +10,6 @@
 </head>
 <body>
 
-	<h2>1번</h2>
-
 	<%
 		int[] scores = {80, 90, 100, 95, 80};
 		
@@ -19,20 +17,48 @@
 		for(int i = 0; i < scores.length; i++){
 			sum += scores[i];
 		}
+		
+		double average = sum / (double)scores.length;
 	%>
 	
-	<h3>평균 : <%= sum / 5 %></h3>
+	<h2>평균은 <%= average %> 입니다</h2>
 	
-	<h2>2번</h2>
 	
 	<%
 		List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
 		
-		for(int i = 0; i )
+		int total = 0;
+		for(String ox:scoreList) {
+			if(ox.equals("O")) {
+				total += 100 / scoreList.size();
+			}
+		}
 	%>
 	
-
-
+	<h2>채점 결과는 <%= total %>점 입니다.</h2>
+	
+	
+	<%!
+		// 1부터 N까지 합을 구하는 함수
+		public int sumAll(int number) {
+			int sum = 0;
+			for(int i = 1; i <= number; i++) {
+				sum += i;
+			}
+			return sum;
+		}
+	%>
+	
+	<h2>1부터 50까지의 합은 <%= sumAll(50) %>입니다.</h2>
+	
+	<%
+		String birthDay = "20010820";
+		int year = Integer.parseInt(birthDay.substring(0, 4));
+		int age = 2023 - year + 1;
+	%>
+	
+	<h2><%= birthDay %>생의 나이는 <%= age %>살입니다.</h2>
+	
 
 </body>
 </html>
