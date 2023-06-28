@@ -11,8 +11,10 @@
 	<h1>메뉴검색</h1>
 	
 	<form>
-		<input type="text" name=>
-	
+		<div>
+		<input type="text" name="menu">
+		<label class="col-8"><input type="checkbox" name="point" value="limit"></label>
+		</div>
 	</form>
 
 

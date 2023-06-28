@@ -28,7 +28,7 @@
     	list.add(map);
 		
     	String menu = request.getParameter("menu");
-    	
+    	String point = request.getParameter("point");	
 	%>
 	
 	
@@ -54,15 +54,29 @@
 						
 						// 별점이 4.0 이상인지
 						// 다운캐스팅 Down Casting
-						double point = (Double)store.get("point");					
+						double targetPoint = (Double)store.get("point");
+						// point가 체크가 된 상태일때, 4.0이상인것
+						//if(point == null || (point.equals("limit") && targetPoint >= 4.0)) {
+							
+						if(!menu.equals(store.get("menu"))){
+							continue;
+						}
+						
+						// point가 체크가 된상태, targetPoint 미만
+						if(point != null && targetPoint < 4.0) {
+							continue;
+						}
+						
+						
 					%>
 					
 					<tr>
-						<td><%= store.get("menu") %></td>
 						<td><%= store.get("name") %></td>
+						<td><%= store.get("menu") %></td>
 						<td><%= store.get("point") %></td>
 					</tr>
-					<% } 
+					<%		} 
+						
 					
 					} %>
 				</tbody>
