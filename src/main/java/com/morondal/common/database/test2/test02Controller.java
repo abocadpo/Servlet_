@@ -16,26 +16,21 @@ public class test02Controller extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 			
-		response.setContentType("text/plain");
-		PrintWriter out = response.getWriter();
-		
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
 		
 		MysqlService mysqlService = MysqlService.getInstance();
-		
 		mysqlService.connect();
 		
-		String query = "INSERT INTO `url`\r\n"
-				+ "(`name`, `url`)\r\n"
-				+ "VALUES\r\n"
-				+ "('" + name + "', '" + url + "')";
+		String query = "INSERT INTO `url` (`name`, `url`) \r\n"
+					+ "VALUE\r\n"
+					+ "('" + name + "', '" + url + "');";
 		
-		int count = mysqlService.update(query);
+		mysqlService.update(query);
 		
-		response.sendRedirect("/database/test/test02.jsp");
-		
-		
+		//redirect
+		response.sendRedirect("/database/test/favorite_list.jsp");
+			
 	}
 	
 }
